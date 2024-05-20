@@ -135,7 +135,7 @@ bool lucas_test(long long n, long long d, long long p, long long q) {
     }
     long long s = m;
     for (int j = 0; j < r; j++) {
-        if (find_v(s * pow(2, j), p, q, n) % n == 0) return true;
+        if (find_v(s * (1 << j), p, q, n) % n == 0) return true;
     }
     return find_u(s, p, q, n) % n == 0;
 }
@@ -167,7 +167,8 @@ string baillie_psw_test(long long n){
     }
     long long p = 1;
     long long q = (1 - d) / 4;
-    return " is probably prime";
+    if (lucas_test(n, d, p, q)) return " is probably prime";
+    else return " is not prime";
 }
 
 string to_binary(long long x){
