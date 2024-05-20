@@ -45,7 +45,7 @@ bool miller_test(long long d, long long n, bool random_base = 1)
     return false;
 }
 
-bool is_prime_rm(long long n, int k)
+bool is_prime_miller_rabin(long long n, int k)
 {
     int pow = 0;
     if (n <= 1) return false;
