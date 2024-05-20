@@ -89,7 +89,7 @@ long long generate_prime(long long bits){
     do {
         generated_number = distribution(mt_generator);
     }
-    while(!is_prime_rm(generated_number, 30));
+    while(!is_prime_miller_rabin(generated_number, 30));
     return generated_number;
 }
 
@@ -300,7 +300,7 @@ int main(){
         cin >> num;
         cout << "Enter the number of test rounds:\n";
         cin >> k;
-        if (is_prime_rm(num, k)) {
+        if (is_prime_miller_rabin(num, k)) {
             cout << num << " is probably prime\n";
             cout << "Accuracy is equal or more than:\n";
             long double acc = 1;
